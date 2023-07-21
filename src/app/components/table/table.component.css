@@ -1,0 +1,18 @@
+table{
+    width: 80%;
+    margin: 50px;
+    border: solid;
+}
+body{
+    background-color: black;
+}
+
+.form{
+    display: grid;
+     place-items: center; 
+     
+}
+h1{
+    text-align: center;
+    color: black;
+}

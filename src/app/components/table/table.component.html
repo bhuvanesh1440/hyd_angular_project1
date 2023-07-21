@@ -1,0 +1,85 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Hall Ticket Number</th>
+        <th scope="col">Student Name</th>
+        <th scope="col">Branch</th>
+        <th scope="col">Year</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th> <!-- New column for delete icon -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let Data of Results">
+        <td scope="row">{{Data[0]}}</td>
+        <td>{{Data[1]}}</td>
+        <td>{{Data[2]}}</td>
+        <td>{{Data[3]}}</td>
+        <td><button type="button" class="btn btn-info"  data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="check(Data)">Edit</button></td> <!-- Edit icon -->
+        <td><button type="button" class="btn btn-danger" (click)="deleteData(Data)">Delete</button></td> <!-- Delete icon -->
+      </tr>
+    </tbody>
+  </table>
+  
+ 
+  
+  <div class="container mt-5">
+    <h1 class="text-dark" style="font-size: 2rem;">Students Register Form</h1>
+  </div>
+  
+<div class="form">
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="floatingInput" [(ngModel)]="formData.Htno"  style="width: 500px;">
+    <label for="floatingInput">Hall Ticket</label>
+  </div>
+  <div class="form-floating">
+    <input type="text" class="form-control" id="floatingPassword" [(ngModel)]="formData.studentName" style="width: 500px;">
+    <label for="floatingPassword">Student Name</label>
+  </div>
+  <br>
+  
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="floatingInput" [(ngModel)]="formData.Branch" style="width: 500px;">
+      <label for="floatingInput">Branch</label>
+    </div>
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingPassword" [(ngModel)]="formData.Year" style="width: 500px;">
+      <label for="floatingPassword">Year</label>
+    </div>
+
+   
+    <div class="container mt-5">
+      <button type="button" class="btn btn-primary" (click)="Add()" style="margin-left:60%; padding-left: 5px;">
+        <i class="bi bi-plus"></i> Add
+      </button>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+<!--updated Form-->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Updated Values</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="text" name="Htno" id="Htno" placeholder="Htno"  class="form-control my-1" [(ngModel)]="formData1.Htno"  ><br>
+        <input type="text" name="studentName" id="studentName"  placeholder="studentName" class="form-control my-1" [(ngModel)]="formData1.studentName"><br>
+        <input type="text" name="Branch" id="Branch" placeholder="Branch"  class="form-control my-1" [(ngModel)]="formData1.Branch" ><br>
+        <input type="text" name="Year" id="Year" placeholder="Year"  class="form-control my-1" [(ngModel)]="formData1.Year"><br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="updateData(a)" >Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
